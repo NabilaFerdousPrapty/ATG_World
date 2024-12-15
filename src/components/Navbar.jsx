@@ -1,47 +1,49 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
+import React from "react";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
+import { Link } from "react-router";
 
 function NavbarComponent() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar
+      expand="lg"
+      className="bg-body-tertiary"
+      sticky="top" // Makes the Navbar stick to the top when scrolling
+    >
+      {/* Use fluid container for full-width */}
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        {/* Navbar Brand */}
+        <Navbar.Brand href="/">
+          <img
+            src="/src/assets/logo.png"
+            alt="Logo"
+            className="d-inline-block align-top"
+            style={{ height: "20px" }}
+          />
+        </Navbar.Brand>
+
+        {/* Toggler for Small Screens */}
         <Navbar.Toggle aria-controls="navbarScroll" />
+
+        {/* Collapsible Content */}
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
           <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
+              className="me-2 px-3"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            
           </Form>
+          {/* Navigation Links */}
+          <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+            <Link className="text-dark text-decoration-none" to="/">
+              Create account. <span className="text-primary">It’s free!</span>
+            </Link>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
