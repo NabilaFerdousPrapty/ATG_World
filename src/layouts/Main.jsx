@@ -7,6 +7,8 @@ import Auth from "../layouts/Auth";
 import Error from "../pages/Error"; // Ensure this exists or create it.
 import { Route, Routes } from "react-router";
 import NavbarComponent from "../components/Navbar"; 
+import "../index.css";  
+import index from './../../node_modules/@emotion/is-prop-valid/dist/is-prop-valid.esm';
 const Main = () => {
   return (
     <div>
